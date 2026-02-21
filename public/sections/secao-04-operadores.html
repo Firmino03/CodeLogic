@@ -1,0 +1,135 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">Os quatro grupos de operadores</span>
+  </div>
+  <p>Operadores são símbolos que realizam operações sobre valores. Os mais usados no dia a dia são os aritméticos, de atribuição, relacionais e lógicos.</p>
+  <div class="grade-operadores">
+    <div class="grupo-operador">
+      <div class="grupo-operador-titulo">Aritméticos</div>
+      <ul>
+        <li><code>+</code><span>soma</span></li>
+        <li><code>-</code><span>subtração</span></li>
+        <li><code>*</code><span>multiplicação</span></li>
+        <li><code>/</code><span>divisão</span></li>
+        <li><code>%</code><span>resto da divisão</span></li>
+      </ul>
+    </div>
+    <div class="grupo-operador">
+      <div class="grupo-operador-titulo">Atribuição</div>
+      <ul>
+        <li><code>=</code><span>atribuir valor</span></li>
+        <li><code>+=</code><span>somar e atribuir</span></li>
+        <li><code>-=</code><span>subtrair e atribuir</span></li>
+        <li><code>*=</code><span>multiplicar e atribuir</span></li>
+      </ul>
+    </div>
+    <div class="grupo-operador">
+      <div class="grupo-operador-titulo">Relacionais</div>
+      <ul>
+        <li><code>===</code><span>igual (valor e tipo)</span></li>
+        <li><code>!==</code><span>diferente</span></li>
+        <li><code>&gt;</code><span>maior que</span></li>
+        <li><code>&lt;</code><span>menor que</span></li>
+        <li><code>&gt;=</code><span>maior ou igual</span></li>
+        <li><code>&lt;=</code><span>menor ou igual</span></li>
+      </ul>
+    </div>
+    <div class="grupo-operador">
+      <div class="grupo-operador-titulo">Lógicos</div>
+      <ul>
+        <li><code>&amp;&amp;</code><span>E — AND</span></li>
+        <li><code>||</code><span>OU — OR</span></li>
+        <li><code>!</code><span>NÃO — NOT</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">soma</span>        <span class="operador">=</span> <span class="numero">10</span> <span class="operador">+</span> <span class="numero">3</span>    <span class="comentario">// 13</span>
+<span class="palavra-chave">const</span> <span class="variavel">restoDivisao</span> <span class="operador">=</span> <span class="numero">10</span> <span class="operador">%</span> <span class="numero">3</span>    <span class="comentario">// 1</span>
+
+<span class="palavra-chave">let</span> <span class="variavel">pontuacao</span> <span class="operador">=</span> <span class="numero">0</span>
+<span class="variavel">pontuacao</span> <span class="operador">+=</span> <span class="numero">10</span>              <span class="comentario">// 10</span>
+<span class="variavel">pontuacao</span> <span class="operador">*=</span> <span class="numero">2</span>               <span class="comentario">// 20</span>
+
+<span class="numero">5</span> <span class="operador">===</span> <span class="numero">5</span>    <span class="comentario">// true</span>
+<span class="numero">5</span> <span class="operador">!==</span> <span class="numero">3</span>    <span class="comentario">// true</span>
+
+<span class="palavra-chave">const</span> <span class="variavel">temIdade</span>  <span class="operador">=</span> <span class="numero">20</span> <span class="operador">&gt;=</span> <span class="numero">18</span>           <span class="comentario">// true</span>
+<span class="palavra-chave">const</span> <span class="variavel">temRenda</span>  <span class="operador">=</span> <span class="numero">3000</span> <span class="operador">&gt;</span> <span class="numero">1500</span>        <span class="comentario">// true</span>
+<span class="palavra-chave">const</span> <span class="variavel">aprovado</span>  <span class="operador">=</span> <span class="variavel">temIdade</span> <span class="operador">&amp;&amp;</span> <span class="variavel">temRenda</span> <span class="comentario">// true</span>
+    </pre>
+  </div>
+  <div class="caixa-aviso"><div class="icone">⚠️</div><p>Sempre use <strong>===</strong> (triplo igual) no TypeScript — ele compara valor <em>e</em> tipo, evitando surpresas como <code>0 == false</code> ser <code>true</code>.</p></div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Operador ternário e nullish</span>
+  </div>
+  <p>O <strong>operador ternário</strong> é um if/else compactado em uma linha. O <strong>nullish coalescing</strong> (<code>??</code>) retorna o lado direito apenas se o lado esquerdo for <code>null</code> ou <code>undefined</code>.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Ternário: condição ? se_verdadeiro : se_falso</span>
+<span class="palavra-chave">const</span> <span class="variavel">notaAluno</span> <span class="operador">=</span> <span class="numero">75</span>
+<span class="palavra-chave">const</span> <span class="variavel">situacao</span>  <span class="operador">=</span> <span class="variavel">notaAluno</span> <span class="operador">&gt;=</span> <span class="numero">60</span> <span class="operador">?</span> <span class="texto-string">"Aprovado"</span> <span class="operador">:</span> <span class="texto-string">"Reprovado"</span>
+
+<span class="comentario">// Nullish coalescing: usa valor padrão se null/undefined</span>
+<span class="palavra-chave">const</span> <span class="variavel">nomeSalvo</span>: <span class="tipo">string</span> <span class="operador">|</span> <span class="palavra-chave">null</span> <span class="operador">=</span> <span class="palavra-chave">null</span>
+<span class="palavra-chave">const</span> <span class="variavel">nomeExibido</span> <span class="operador">=</span> <span class="variavel">nomeSalvo</span> <span class="operador">??</span> <span class="texto-string">"Visitante"</span>  <span class="comentario">// "Visitante"</span>
+
+<span class="comentario">// Optional chaining: acessa propriedade só se existir</span>
+<span class="palavra-chave">const</span> <span class="variavel">usuario</span>: { <span class="variavel">endereco</span>?: { <span class="variavel">cidade</span>: <span class="tipo">string</span> } } <span class="operador">=</span> {}
+<span class="palavra-chave">const</span> <span class="variavel">cidadeUsuario</span> <span class="operador">=</span> <span class="variavel">usuario</span>.<span class="variavel">endereco</span><span class="operador">?.</span><span class="variavel">cidade</span>  <span class="comentario">// undefined (sem erro)</span>
+
+<span class="comentario">// Encadeamento: ?? com ?.</span>
+<span class="palavra-chave">const</span> <span class="variavel">cidadeOuPadrao</span> <span class="operador">=</span> <span class="variavel">usuario</span>.<span class="variavel">endereco</span><span class="operador">?.</span><span class="variavel">cidade</span> <span class="operador">??</span> <span class="texto-string">"Não informada"</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Operadores bit a bit e de tipo</span>
+  </div>
+  <p>Os <strong>operadores bit a bit</strong> manipulam os bits individuais de números. São usados em otimizações de performance, permissões em sistemas e manipulação de flags. O operador <code>typeof</code> e <code>instanceof</code> ajudam a verificar tipos em tempo de execução.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Sistema de permissões com flags binárias</span>
+<span class="palavra-chave">const</span> <span class="variavel">PERMISSAO_LER</span>     <span class="operador">=</span> <span class="numero">0b001</span>  <span class="comentario">// 1</span>
+<span class="palavra-chave">const</span> <span class="variavel">PERMISSAO_ESCREVER</span> <span class="operador">=</span> <span class="numero">0b010</span>  <span class="comentario">// 2</span>
+<span class="palavra-chave">const</span> <span class="variavel">PERMISSAO_EXECUTAR</span> <span class="operador">=</span> <span class="numero">0b100</span>  <span class="comentario">// 4</span>
+
+<span class="comentario">// Combinar permissões com OR bit a bit</span>
+<span class="palavra-chave">const</span> <span class="variavel">permissoesAdmin</span> <span class="operador">=</span> <span class="variavel">PERMISSAO_LER</span> <span class="operador">|</span> <span class="variavel">PERMISSAO_ESCREVER</span> <span class="operador">|</span> <span class="variavel">PERMISSAO_EXECUTAR</span>
+<span class="comentario">// 7 = 0b111</span>
+
+<span class="comentario">// Verificar permissão com AND bit a bit</span>
+<span class="palavra-chave">const</span> <span class="variavel">podeLer</span>     <span class="operador">=</span> (<span class="variavel">permissoesAdmin</span> <span class="operador">&amp;</span> <span class="variavel">PERMISSAO_LER</span>) <span class="operador">!==</span> <span class="numero">0</span>     <span class="comentario">// true</span>
+<span class="palavra-chave">const</span> <span class="variavel">podeExecutar</span> <span class="operador">=</span> (<span class="variavel">permissoesAdmin</span> <span class="operador">&amp;</span> <span class="variavel">PERMISSAO_EXECUTAR</span>) <span class="operador">!==</span> <span class="numero">0</span> <span class="comentario">// true</span>
+
+<span class="comentario">// typeof — verifica tipo em tempo de execução</span>
+<span class="palavra-chave">function</span> <span class="funcao">processarEntrada</span>(<span class="variavel">valor</span>: <span class="tipo">string</span> <span class="operador">|</span> <span class="tipo">number</span>): <span class="tipo">string</span> {
+  <span class="palavra-chave">if</span> (<span class="palavra-chave">typeof</span> <span class="variavel">valor</span> <span class="operador">===</span> <span class="texto-string">"string"</span>) {
+    <span class="palavra-chave">return</span> <span class="variavel">valor</span>.<span class="funcao">toUpperCase</span>()
+  }
+  <span class="palavra-chave">return</span> <span class="variavel">valor</span>.<span class="funcao">toFixed</span>(<span class="numero">2</span>)
+}
+    </pre>
+  </div>
+</div>

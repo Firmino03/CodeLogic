@@ -1,0 +1,105 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é um algoritmo?</span>
+  </div>
+  <p>Um <strong>algoritmo</strong> é uma sequência finita de passos bem definidos para resolver um problema. Pense em uma receita de bolo: tem ingredientes (dados de entrada), passos ordenados (processamento) e um resultado (saída).</p>
+  <div class="grade-cards">
+    <div class="card"><h3><span class="icone">📥</span> Entrada</h3><p>Os dados que o algoritmo recebe para trabalhar. Ex: as notas de um aluno.</p></div>
+    <div class="card"><h3><span class="icone">⚙️</span> Processamento</h3><p>As operações realizadas sobre os dados. Ex: calcular a média das notas.</p></div>
+    <div class="card"><h3><span class="icone">📤</span> Saída</h3><p>O resultado produzido pelo algoritmo. Ex: "Aprovado" ou "Reprovado".</p></div>
+  </div>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Algoritmo: calcular média e exibir situação do aluno</span>
+
+<span class="comentario">// ENTRADA</span>
+<span class="palavra-chave">const</span> <span class="variavel">primeiraNota</span>: <span class="tipo">number</span>  = <span class="numero">7.5</span>
+<span class="palavra-chave">const</span> <span class="variavel">segundaNota</span>: <span class="tipo">number</span>   = <span class="numero">8.0</span>
+<span class="palavra-chave">const</span> <span class="variavel">terceiraNota</span>: <span class="tipo">number</span>  = <span class="numero">6.5</span>
+
+<span class="comentario">// PROCESSAMENTO</span>
+<span class="palavra-chave">const</span> <span class="variavel">mediaFinal</span>: <span class="tipo">number</span> <span class="operador">=</span> (<span class="variavel">primeiraNota</span> <span class="operador">+</span> <span class="variavel">segundaNota</span> <span class="operador">+</span> <span class="variavel">terceiraNota</span>) <span class="operador">/</span> <span class="numero">3</span>
+
+<span class="comentario">// SAÍDA</span>
+<span class="palavra-chave">const</span> <span class="variavel">situacaoAluno</span>: <span class="tipo">string</span> <span class="operador">=</span> <span class="variavel">mediaFinal</span> <span class="operador">>=</span> <span class="numero">6</span> <span class="operador">?</span> <span class="texto-string">"Aprovado"</span> <span class="operador">:</span> <span class="texto-string">"Reprovado"</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Média: <span class="operador">${</span><span class="variavel">mediaFinal</span>.<span class="funcao">toFixed</span>(<span class="numero">1</span>)<span class="operador">}</span> → <span class="operador">${</span><span class="variavel">situacaoAluno</span><span class="operador">}</span>`</span>)
+<span class="comentario">// "Média: 7.3 → Aprovado"</span>
+    </pre>
+  </div>
+  <div class="caixa-info"><div class="icone">💡</div><p>Todo algoritmo tem três partes: <strong>Entrada → Processamento → Saída</strong>. Em TypeScript, os tipos garantem que cada parte recebe os dados corretos.</p></div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Fluxo de controle e decisões</span>
+  </div>
+  <p>Algoritmos reais precisam tomar decisões e repetir ações. O <strong>fluxograma</strong> representa visualmente o caminho que o algoritmo percorre. Em código, usamos condicionais e laços para controlar esse fluxo.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Algoritmo: encontrar o maior número em uma lista</span>
+<span class="palavra-chave">function</span> <span class="funcao">encontrarMaiorNumero</span>(<span class="variavel">listaDeNumeros</span>: <span class="tipo">number</span>[]): <span class="tipo">number</span> {
+  <span class="comentario">// Passo 1: assumir que o primeiro é o maior</span>
+  <span class="palavra-chave">let</span> <span class="variavel">maiorEncontrado</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>[<span class="numero">0</span>]
+
+  <span class="comentario">// Passo 2: percorrer os demais e comparar</span>
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">posicao</span> <span class="operador">=</span> <span class="numero">1</span>; <span class="variavel">posicao</span> <span class="operador">&lt;</span> <span class="variavel">listaDeNumeros</span>.<span class="variavel">length</span>; <span class="variavel">posicao</span><span class="operador">++</span>) {
+    <span class="palavra-chave">if</span> (<span class="variavel">listaDeNumeros</span>[<span class="variavel">posicao</span>] <span class="operador">&gt;</span> <span class="variavel">maiorEncontrado</span>) {
+      <span class="variavel">maiorEncontrado</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>[<span class="variavel">posicao</span>]
+    }
+  }
+  <span class="comentario">// Passo 3: retornar o resultado</span>
+  <span class="palavra-chave">return</span> <span class="variavel">maiorEncontrado</span>
+}
+
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="funcao">encontrarMaiorNumero</span>([<span class="numero">42</span>, <span class="numero">7</span>, <span class="numero">99</span>, <span class="numero">13</span>]))  <span class="comentario">// 99</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Complexidade e otimização</span>
+  </div>
+  <p>A <strong>complexidade de tempo</strong> descreve como o tempo de execução de um algoritmo cresce com o tamanho da entrada. A notação <strong>O(n)</strong> (Big O) é usada para expressar isso. Entender isso é essencial para escrever código eficiente.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// O(n²) — lento para listas grandes (loop dentro de loop)</span>
+<span class="palavra-chave">function</span> <span class="funcao">temDuplicadosLento</span>(<span class="variavel">lista</span>: <span class="tipo">number</span>[]): <span class="tipo">boolean</span> {
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">i</span> <span class="operador">=</span> <span class="numero">0</span>; <span class="variavel">i</span> <span class="operador">&lt;</span> <span class="variavel">lista</span>.<span class="variavel">length</span>; <span class="variavel">i</span><span class="operador">++</span>) {
+    <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">j</span> <span class="operador">=</span> <span class="variavel">i</span> <span class="operador">+</span> <span class="numero">1</span>; <span class="variavel">j</span> <span class="operador">&lt;</span> <span class="variavel">lista</span>.<span class="variavel">length</span>; <span class="variavel">j</span><span class="operador">++</span>) {
+      <span class="palavra-chave">if</span> (<span class="variavel">lista</span>[<span class="variavel">i</span>] <span class="operador">===</span> <span class="variavel">lista</span>[<span class="variavel">j</span>]) <span class="palavra-chave">return</span> <span class="palavra-chave">true</span>
+    }
+  }
+  <span class="palavra-chave">return</span> <span class="palavra-chave">false</span>
+}
+
+<span class="comentario">// O(n) — rápido: usa Set para verificar em tempo constante</span>
+<span class="palavra-chave">function</span> <span class="funcao">temDuplicadosRapido</span>(<span class="variavel">lista</span>: <span class="tipo">number</span>[]): <span class="tipo">boolean</span> {
+  <span class="palavra-chave">const</span> <span class="variavel">conjuntoDeVistos</span> <span class="operador">=</span> <span class="palavra-chave">new</span> <span class="funcao">Set</span>&lt;<span class="tipo">number</span>&gt;()
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">const</span> <span class="variavel">valorAtual</span> <span class="palavra-chave">of</span> <span class="variavel">lista</span>) {
+    <span class="palavra-chave">if</span> (<span class="variavel">conjuntoDeVistos</span>.<span class="funcao">has</span>(<span class="variavel">valorAtual</span>)) <span class="palavra-chave">return</span> <span class="palavra-chave">true</span>
+    <span class="variavel">conjuntoDeVistos</span>.<span class="funcao">add</span>(<span class="variavel">valorAtual</span>)
+  }
+  <span class="palavra-chave">return</span> <span class="palavra-chave">false</span>
+}
+
+<span class="funcao">temDuplicadosRapido</span>([<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>, <span class="numero">2</span>])  <span class="comentario">// true — muito mais eficiente!</span>
+    </pre>
+  </div>
+  <div class="caixa-aviso"><div class="icone">⚠️</div><p>Para listas pequenas, a diferença é imperceptível. Para listas com milhares de elementos, escolher o algoritmo certo pode fazer o código ser <strong>milhares de vezes mais rápido</strong>.</p></div>
+</div>
