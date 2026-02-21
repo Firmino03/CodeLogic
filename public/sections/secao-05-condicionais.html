@@ -1,0 +1,115 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">if, else e else if</span>
+  </div>
+  <p>Condicionais permitem ao programa <strong>tomar decisões</strong>: executar um bloco apenas se uma condição for verdadeira. São a base do fluxo de controle de qualquer programa.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">idadeUsuario</span>: <span class="tipo">number</span> <span class="operador">=</span> <span class="numero">16</span>
+
+<span class="comentario">// if / else</span>
+<span class="palavra-chave">if</span> (<span class="variavel">idadeUsuario</span> <span class="operador">&gt;=</span> <span class="numero">18</span>) {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Acesso permitido"</span>)
+} <span class="palavra-chave">else</span> {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Acesso negado — menor de idade"</span>)
+}
+
+<span class="comentario">// else if: múltiplas condições</span>
+<span class="palavra-chave">const</span> <span class="variavel">notaFinal</span>: <span class="tipo">number</span> <span class="operador">=</span> <span class="numero">75</span>
+
+<span class="palavra-chave">if</span> (<span class="variavel">notaFinal</span> <span class="operador">&gt;=</span> <span class="numero">90</span>) {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Conceito A"</span>)
+} <span class="palavra-chave">else if</span> (<span class="variavel">notaFinal</span> <span class="operador">&gt;=</span> <span class="numero">80</span>) {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Conceito B"</span>)
+} <span class="palavra-chave">else if</span> (<span class="variavel">notaFinal</span> <span class="operador">&gt;=</span> <span class="numero">70</span>) {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Conceito C"</span>)   <span class="comentario">// ← este será executado</span>
+} <span class="palavra-chave">else</span> {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Reprovado"</span>)
+}
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">switch/case e ternário</span>
+  </div>
+  <p>O <strong>switch</strong> é mais legível que vários <code>else if</code> quando você está comparando um único valor contra múltiplas opções. O <strong>ternário</strong> é um if/else compacto para uma linha.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// switch / case</span>
+<span class="palavra-chave">const</span> <span class="variavel">diaDaSemana</span>: <span class="tipo">number</span> <span class="operador">=</span> <span class="numero">3</span>
+<span class="palavra-chave">let</span> <span class="variavel">nomesDoDia</span>: <span class="tipo">string</span>
+
+<span class="palavra-chave">switch</span> (<span class="variavel">diaDaSemana</span>) {
+  <span class="palavra-chave">case</span> <span class="numero">1</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Segunda"</span>; <span class="palavra-chave">break</span>
+  <span class="palavra-chave">case</span> <span class="numero">2</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Terça"</span>;   <span class="palavra-chave">break</span>
+  <span class="palavra-chave">case</span> <span class="numero">3</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Quarta"</span>;  <span class="palavra-chave">break</span>
+  <span class="palavra-chave">case</span> <span class="numero">4</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Quinta"</span>;  <span class="palavra-chave">break</span>
+  <span class="palavra-chave">case</span> <span class="numero">5</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Sexta"</span>;   <span class="palavra-chave">break</span>
+  <span class="palavra-chave">default</span>: <span class="variavel">nomesDoDia</span> <span class="operador">=</span> <span class="texto-string">"Fim de semana"</span>
+}
+
+<span class="comentario">// Ternário: expressão compacta</span>
+<span class="palavra-chave">const</span> <span class="variavel">temperatura</span> <span class="operador">=</span> <span class="numero">32</span>
+<span class="palavra-chave">const</span> <span class="variavel">sensacaoTermica</span> <span class="operador">=</span> <span class="variavel">temperatura</span> <span class="operador">&gt;</span> <span class="numero">30</span>
+  <span class="operador">?</span> <span class="texto-string">"Calor intenso"</span>
+  <span class="operador">:</span> <span class="variavel">temperatura</span> <span class="operador">&gt;</span> <span class="numero">20</span>
+    <span class="operador">?</span> <span class="texto-string">"Agradável"</span>
+    <span class="operador">:</span> <span class="texto-string">"Frio"</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Type narrowing e discriminated unions</span>
+  </div>
+  <p>O TypeScript usa o resultado de condicionais para <strong>estreitar (narrow)</strong> o tipo de uma variável. <strong>Discriminated unions</strong> é um padrão onde um campo em comum define qual tipo está sendo usado.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Type narrowing: TypeScript sabe o tipo dentro do if</span>
+<span class="palavra-chave">function</span> <span class="funcao">processarValor</span>(<span class="variavel">entrada</span>: <span class="tipo">string</span> <span class="operador">|</span> <span class="tipo">number</span>): <span class="tipo">string</span> {
+  <span class="palavra-chave">if</span> (<span class="palavra-chave">typeof</span> <span class="variavel">entrada</span> <span class="operador">===</span> <span class="texto-string">"string"</span>) {
+    <span class="palavra-chave">return</span> <span class="variavel">entrada</span>.<span class="funcao">toUpperCase</span>()  <span class="comentario">// TypeScript sabe: é string aqui</span>
+  }
+  <span class="palavra-chave">return</span> <span class="variavel">entrada</span>.<span class="funcao">toFixed</span>(<span class="numero">2</span>)      <span class="comentario">// TypeScript sabe: é number aqui</span>
+}
+
+<span class="comentario">// Discriminated union: campo "tipo" determina a forma</span>
+<span class="palavra-chave">type</span> <span class="tipo">EventoSistema</span> <span class="operador">=</span>
+  <span class="operador">|</span> { <span class="variavel">tipo</span>: <span class="texto-string">"login"</span>;   <span class="variavel">nomeUsuario</span>: <span class="tipo">string</span> }
+  <span class="operador">|</span> { <span class="variavel">tipo</span>: <span class="texto-string">"compra"</span>;  <span class="variavel">valorTotal</span>: <span class="tipo">number</span> }
+  <span class="operador">|</span> { <span class="variavel">tipo</span>: <span class="texto-string">"erro"</span>;    <span class="variavel">mensagemErro</span>: <span class="tipo">string</span> }
+
+<span class="palavra-chave">function</span> <span class="funcao">registrarEvento</span>(<span class="variavel">evento</span>: <span class="tipo">EventoSistema</span>): <span class="tipo">void</span> {
+  <span class="palavra-chave">switch</span> (<span class="variavel">evento</span>.<span class="variavel">tipo</span>) {
+    <span class="palavra-chave">case</span> <span class="texto-string">"login"</span>:
+      <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Login: <span class="operador">${</span><span class="variavel">evento</span>.<span class="variavel">nomeUsuario</span><span class="operador">}</span>`</span>)  <span class="comentario">// TS sabe que tem nomeUsuario</span>
+      <span class="palavra-chave">break</span>
+    <span class="palavra-chave">case</span> <span class="texto-string">"compra"</span>:
+      <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Compra: R$ <span class="operador">${</span><span class="variavel">evento</span>.<span class="variavel">valorTotal</span><span class="operador">}</span>`</span>)   <span class="comentario">// TS sabe que tem valorTotal</span>
+      <span class="palavra-chave">break</span>
+    <span class="palavra-chave">case</span> <span class="texto-string">"erro"</span>:
+      <span class="variavel">console</span>.<span class="funcao">error</span>(<span class="variavel">evento</span>.<span class="variavel">mensagemErro</span>)
+      <span class="palavra-chave">break</span>
+  }
+}
+    </pre>
+  </div>
+</div>
