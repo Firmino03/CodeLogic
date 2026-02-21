@@ -1,0 +1,105 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é uma variável?</span>
+  </div>
+  <p>Uma <strong>variável</strong> é um espaço nomeado na memória do computador onde guardamos um valor. Pense nela como uma caixinha com um rótulo: o rótulo é o nome da variável, e o conteúdo da caixinha é o valor armazenado.</p>
+  <p>Em TypeScript usamos <strong>const</strong> para valores que não mudam e <strong>let</strong> para valores que podem mudar.</p>
+  <div class="grade-cards">
+    <div class="card"><h3><span class="icone">📦</span> const</h3><p>Valor constante. Não pode ser reatribuído após a criação. Prefira sempre que o valor não precisar mudar.</p></div>
+    <div class="card"><h3><span class="icone">🔄</span> let</h3><p>Variável mutável. O valor pode ser reatribuído. Use quando o valor precisa mudar durante a execução.</p></div>
+  </div>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// const: valor fixo, não muda</span>
+<span class="palavra-chave">const</span> <span class="variavel">nomePessoa</span>: <span class="tipo">string</span>  = <span class="texto-string">"Ana"</span>
+<span class="palavra-chave">const</span> <span class="variavel">idadePessoa</span>: <span class="tipo">number</span> = <span class="numero">25</span>
+<span class="palavra-chave">const</span> <span class="variavel">estaAtivo</span>: <span class="tipo">boolean</span>  = <span class="palavra-chave">true</span>
+
+<span class="comentario">// let: valor que pode mudar</span>
+<span class="palavra-chave">let</span> <span class="variavel">pontuacao</span>: <span class="tipo">number</span> = <span class="numero">0</span>
+<span class="variavel">pontuacao</span> <span class="operador">=</span> <span class="numero">100</span>   <span class="comentario">// ✅ permitido com let</span>
+
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">nomePessoa</span>)   <span class="comentario">// "Ana"</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">pontuacao</span>)    <span class="comentario">// 100</span>
+    </pre>
+  </div>
+  <div class="caixa-info"><div class="icone">💡</div><p>Prefira sempre <code>const</code>. Só use <code>let</code> quando realmente precisar modificar o valor. Evite <code>var</code> — ele tem comportamento imprevisível.</p></div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Escopo e inferência de tipo</span>
+  </div>
+  <p><strong>Escopo</strong> é onde uma variável existe no código. Variáveis declaradas com <code>let</code> e <code>const</code> têm <em>escopo de bloco</em> — só existem dentro do <code>{ }</code> em que foram criadas.</p>
+  <p><strong>Inferência de tipo</strong> é quando o TypeScript descobre o tipo automaticamente pelo valor atribuído, sem você precisar declarar explicitamente.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Inferência: TypeScript detecta o tipo pelo valor</span>
+<span class="palavra-chave">const</span> <span class="variavel">linguagem</span> <span class="operador">=</span> <span class="texto-string">"TypeScript"</span>  <span class="comentario">// tipo: string (inferido)</span>
+<span class="palavra-chave">let</span>   <span class="variavel">contador</span>  <span class="operador">=</span> <span class="numero">0</span>               <span class="comentario">// tipo: number (inferido)</span>
+
+<span class="comentario">// Escopo de bloco</span>
+<span class="palavra-chave">if</span> (<span class="palavra-chave">true</span>) {
+  <span class="palavra-chave">const</span> <span class="variavel">dentroDoBloco</span> <span class="operador">=</span> <span class="texto-string">"só existe aqui"</span>
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">dentroDoBloco</span>)  <span class="comentario">// ✅ ok</span>
+}
+<span class="comentario">// console.log(dentroDoBloco) → ❌ Erro! variável não existe aqui</span>
+
+<span class="comentario">// Declarar sem valor inicial (precisa informar o tipo)</span>
+<span class="palavra-chave">let</span> <span class="variavel">resultadoFinal</span>: <span class="tipo">number</span>
+<span class="variavel">resultadoFinal</span> <span class="operador">=</span> <span class="numero">42</span>   <span class="comentario">// atribuição posterior</span>
+
+<span class="comentario">// Desestruturação</span>
+<span class="palavra-chave">const</span> [<span class="variavel">primeiro</span>, <span class="variavel">segundo</span>] <span class="operador">=</span> [<span class="numero">10</span>, <span class="numero">20</span>]
+<span class="palavra-chave">const</span> { <span class="variavel">nome</span>, <span class="variavel">idade</span> } <span class="operador">=</span> { <span class="variavel">nome</span>: <span class="texto-string">"Bruno"</span>, <span class="variavel">idade</span>: <span class="numero">30</span> }
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Tipos literais, union e readonly</span>
+  </div>
+  <p>TypeScript permite criar tipos muito específicos usando <strong>tipos literais</strong> (valores exatos) e <strong>union types</strong> (um ou outro tipo). O modificador <code>readonly</code> torna objetos imutáveis em profundidade.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Tipo literal: só aceita valores específicos</span>
+<span class="palavra-chave">type</span> <span class="tipo">DirecaoDoPersonagem</span> <span class="operador">=</span> <span class="texto-string">"cima"</span> <span class="operador">|</span> <span class="texto-string">"baixo"</span> <span class="operador">|</span> <span class="texto-string">"esquerda"</span> <span class="operador">|</span> <span class="texto-string">"direita"</span>
+<span class="palavra-chave">let</span> <span class="variavel">direcaoAtual</span>: <span class="tipo">DirecaoDoPersonagem</span> <span class="operador">=</span> <span class="texto-string">"cima"</span>
+<span class="comentario">// direcaoAtual = "diagonal"  ❌ Erro! valor não permitido</span>
+
+<span class="comentario">// Union type: pode ser um OU outro</span>
+<span class="palavra-chave">let</span> <span class="variavel">codigoDoProduto</span>: <span class="tipo">string</span> <span class="operador">|</span> <span class="tipo">number</span> <span class="operador">=</span> <span class="texto-string">"ABC-123"</span>
+<span class="variavel">codigoDoProduto</span> <span class="operador">=</span> <span class="numero">456</span>   <span class="comentario">// ✅ também é válido</span>
+
+<span class="comentario">// Readonly: protege o objeto contra mutação</span>
+<span class="palavra-chave">const</span> <span class="variavel">configuracaoServidor</span>: <span class="tipo">Readonly</span>&lt;{
+  <span class="variavel">host</span>: <span class="tipo">string</span>
+  <span class="variavel">porta</span>: <span class="tipo">number</span>
+}&gt; <span class="operador">=</span> {
+  <span class="variavel">host</span>: <span class="texto-string">"localhost"</span>,
+  <span class="variavel">porta</span>: <span class="numero">3000</span>
+}
+<span class="comentario">// configuracaoServidor.porta = 8080  ❌ Erro! propriedade readonly</span>
+
+<span class="comentario">// as const: torna o array e seus valores imutáveis</span>
+<span class="palavra-chave">const</span> <span class="variavel">coresDisponiveis</span> <span class="operador">=</span> [<span class="texto-string">"azul"</span>, <span class="texto-string">"verde"</span>, <span class="texto-string">"vermelho"</span>] <span class="palavra-chave">as</span> <span class="palavra-chave">const</span>
+<span class="comentario">// tipo inferido: readonly ["azul", "verde", "vermelho"]</span>
+    </pre>
+  </div>
+</div>

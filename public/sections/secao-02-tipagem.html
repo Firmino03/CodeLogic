@@ -1,0 +1,106 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">Os 5 tipos fundamentais</span>
+  </div>
+  <p>TypeScript adiciona <strong>tipos</strong> ao JavaScript. Declarar o tipo de uma variável faz o editor avisar quando você comete erros <em>antes mesmo de executar o código</em>.</p>
+  <ul class="lista-itens">
+    <li><code>string</code><span class="descricao">— textos: nomes, frases. Ex: <code style="color:var(--codigo-texto-string)">"Olá"</code></span></li>
+    <li><code>number</code><span class="descricao">— números inteiros ou decimais. Ex: <code style="color:var(--codigo-numero)">42</code>, <code style="color:var(--codigo-numero)">3.14</code></span></li>
+    <li><code>boolean</code><span class="descricao">— verdadeiro ou falso: <code style="color:var(--codigo-palavra-chave)">true</code> / <code style="color:var(--codigo-palavra-chave)">false</code></span></li>
+    <li><code>void</code><span class="descricao">— funções que não retornam nenhum valor</span></li>
+    <li><code>any</code><span class="descricao">— desabilita verificação. Evite — perde o benefício do TypeScript</span></li>
+  </ul>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">nomePessoa</span>: <span class="tipo">string</span>   <span class="operador">=</span> <span class="texto-string">"Alice"</span>
+<span class="palavra-chave">const</span> <span class="variavel">idadePessoa</span>: <span class="tipo">number</span>   <span class="operador">=</span> <span class="numero">30</span>
+<span class="palavra-chave">const</span> <span class="variavel">estaLogado</span>: <span class="tipo">boolean</span>   <span class="operador">=</span> <span class="palavra-chave">true</span>
+
+<span class="palavra-chave">function</span> <span class="funcao">exibirSaudacao</span>(<span class="variavel">nome</span>: <span class="tipo">string</span>): <span class="tipo">void</span> {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Olá, <span class="operador">${</span><span class="variavel">nome</span><span class="operador">}</span>!`</span>)   <span class="comentario">// não retorna nada → void</span>
+}
+
+<span class="comentario">// ❌ Erro detectado antes de rodar:</span>
+<span class="comentario">// const altura: number = "1.75"  → Type 'string' não é 'number'</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Arrays tipados e tuplas</span>
+  </div>
+  <p>Em TypeScript, arrays têm um tipo definido para seus elementos. Uma <strong>tupla</strong> é um array de tamanho fixo onde cada posição tem um tipo específico.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Array tipado</span>
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNotas</span>: <span class="tipo">number</span>[] <span class="operador">=</span> [<span class="numero">8.5</span>, <span class="numero">7.0</span>, <span class="numero">9.2</span>]
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNomes</span>: <span class="tipo">string</span>[] <span class="operador">=</span> [<span class="texto-string">"Ana"</span>, <span class="texto-string">"Bruno"</span>, <span class="texto-string">"Carla"</span>]
+
+<span class="comentario">// Tupla: tamanho e tipos fixos por posição</span>
+<span class="palavra-chave">const</span> <span class="variavel">coordenadas</span>: [<span class="tipo">number</span>, <span class="tipo">number</span>] <span class="operador">=</span> [<span class="operador">-</span><span class="numero">23.5</span>, <span class="operador">-</span><span class="numero">46.6</span>]
+<span class="palavra-chave">const</span> <span class="variavel">entradaDoBanco</span>: [<span class="tipo">string</span>, <span class="tipo">number</span>, <span class="tipo">boolean</span>] <span class="operador">=</span> [<span class="texto-string">"Alice"</span>, <span class="numero">5000</span>, <span class="palavra-chave">true</span>]
+
+<span class="comentario">// Tipo object</span>
+<span class="palavra-chave">const</span> <span class="variavel">perfilUsuario</span>: { <span class="variavel">nome</span>: <span class="tipo">string</span>; <span class="variavel">idade</span>: <span class="tipo">number</span> } <span class="operador">=</span> {
+  <span class="variavel">nome</span>: <span class="texto-string">"Carlos"</span>,
+  <span class="variavel">idade</span>: <span class="numero">28</span>
+}
+
+<span class="comentario">// null e undefined</span>
+<span class="palavra-chave">let</span> <span class="variavel">emailOpcional</span>: <span class="tipo">string</span> <span class="operador">|</span> <span class="palavra-chave">null</span> <span class="operador">=</span> <span class="palavra-chave">null</span>
+<span class="variavel">emailOpcional</span> <span class="operador">=</span> <span class="texto-string">"carlos@email.com"</span>   <span class="comentario">// ✅ ok</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Tipos genéricos e utility types</span>
+  </div>
+  <p><strong>Tipos genéricos</strong> permitem criar funções e estruturas que funcionam com qualquer tipo. Os <strong>utility types</strong> são tipos prontos do TypeScript para transformar outros tipos.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Genérico: função que aceita qualquer tipo</span>
+<span class="palavra-chave">function</span> <span class="funcao">primeiroElemento</span>&lt;<span class="tipo">T</span>&gt;(<span class="variavel">lista</span>: <span class="tipo">T</span>[]): <span class="tipo">T</span> {
+  <span class="palavra-chave">return</span> <span class="variavel">lista</span>[<span class="numero">0</span>]
+}
+<span class="funcao">primeiroElemento</span>([<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>])        <span class="comentario">// retorna: number</span>
+<span class="funcao">primeiroElemento</span>([<span class="texto-string">"a"</span>, <span class="texto-string">"b"</span>])       <span class="comentario">// retorna: string</span>
+
+<span class="comentario">// Utility Types — transformam tipos existentes</span>
+<span class="palavra-chave">interface</span> <span class="tipo">ConfiguracaoEmail</span> {
+  <span class="variavel">destinatario</span>: <span class="tipo">string</span>
+  <span class="variavel">assunto</span>: <span class="tipo">string</span>
+  <span class="variavel">corpoMensagem</span>: <span class="tipo">string</span>
+}
+
+<span class="palavra-chave">type</span> <span class="tipo">ConfiguracaoRascunho</span> <span class="operador">=</span> <span class="tipo">Partial</span>&lt;<span class="tipo">ConfiguracaoEmail</span>&gt;
+<span class="comentario">// Todos os campos viram opcionais</span>
+
+<span class="palavra-chave">type</span> <span class="tipo">ConfiguracaoFinal</span> <span class="operador">=</span> <span class="tipo">Required</span>&lt;<span class="tipo">ConfiguracaoRascunho</span>&gt;
+<span class="comentario">// Todos os campos voltam a ser obrigatórios</span>
+
+<span class="palavra-chave">type</span> <span class="tipo">SomenteDestinatario</span> <span class="operador">=</span> <span class="tipo">Pick</span>&lt;<span class="tipo">ConfiguracaoEmail</span>, <span class="texto-string">"destinatario"</span>&gt;
+<span class="comentario">// Pega só o campo "destinatario"</span>
+
+<span class="palavra-chave">type</span> <span class="tipo">SemCorpo</span> <span class="operador">=</span> <span class="tipo">Omit</span>&lt;<span class="tipo">ConfiguracaoEmail</span>, <span class="texto-string">"corpoMensagem"</span>&gt;
+<span class="comentario">// Remove o campo "corpoMensagem"</span>
+    </pre>
+  </div>
+</div>
