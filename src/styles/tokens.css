@@ -1,0 +1,26 @@
+:root {
+  --cor-fundo:             #0a0a0f;
+  --cor-superficie:        #111118;
+  --cor-superficie-2:      #16161f;
+  --cor-borda:             #1e1e2e;
+  --cor-borda-hover:       rgba(59,130,246,0.4);
+  --cor-acento-azul:       #3b82f6;
+  --cor-acento-roxo:       #a78bfa;
+  --cor-acento-verde:      #34d399;
+  --cor-texto:             #e2e8f0;
+  --cor-texto-suave:       #94a3b8;
+  --cor-texto-mudo:        #64748b;
+  --codigo-fundo:          #0d1117;
+  --codigo-palavra-chave:  #ff79c6;
+  --codigo-tipo:           #8be9fd;
+  --codigo-texto-string:   #f1fa8c;
+  --codigo-comentario:     #6272a4;
+  --codigo-numero:         #bd93f9;
+  --codigo-funcao:         #50fa7b;
+  --codigo-operador:       #ff6e6e;
+  --fonte-titulo:          'Syne', sans-serif;
+  --fonte-codigo:          'Space Mono', monospace;
+  --fonte-tamanho-base:    17px;  
+  --raio:                  6px;
+  --sombra:                0 4px 24px rgba(0,0,0,0.4);
+}
