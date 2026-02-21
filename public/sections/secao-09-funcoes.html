@@ -1,0 +1,117 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">Declarando e chamando funções</span>
+  </div>
+  <p>Funções são <strong>blocos de código reutilizáveis</strong> com nome. Evitam repetição, organizam o programa e tornam o código mais fácil de ler e manter.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Função com retorno</span>
+<span class="palavra-chave">function</span> <span class="funcao">somar</span>(<span class="variavel">a</span>: <span class="tipo">number</span>, <span class="variavel">b</span>: <span class="tipo">number</span>): <span class="tipo">number</span> {
+  <span class="palavra-chave">return</span> <span class="variavel">a</span> <span class="operador">+</span> <span class="variavel">b</span>
+}
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="funcao">somar</span>(<span class="numero">3</span>, <span class="numero">5</span>))  <span class="comentario">// 8</span>
+
+<span class="comentario">// Função sem retorno (void)</span>
+<span class="palavra-chave">function</span> <span class="funcao">saudar</span>(<span class="variavel">nome</span>: <span class="tipo">string</span>): <span class="tipo">void</span> {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Olá, <span class="operador">${</span><span class="variavel">nome</span><span class="operador">}</span>!`</span>)
+}
+<span class="funcao">saudar</span>(<span class="texto-string">"Maria"</span>)
+
+<span class="comentario">// Arrow function: sintaxe compacta</span>
+<span class="palavra-chave">const</span> <span class="variavel">dobrar</span> <span class="operador">=</span> (<span class="variavel">n</span>: <span class="tipo">number</span>): <span class="tipo">number</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">*</span> <span class="numero">2</span>
+<span class="funcao">dobrar</span>(<span class="numero">7</span>)  <span class="comentario">// 14</span>
+
+<span class="comentario">// Parâmetro com valor padrão</span>
+<span class="palavra-chave">function</span> <span class="funcao">potencia</span>(<span class="variavel">base</span>: <span class="tipo">number</span>, <span class="variavel">exp</span>: <span class="tipo">number</span> <span class="operador">=</span> <span class="numero">2</span>): <span class="tipo">number</span> {
+  <span class="palavra-chave">return</span> <span class="variavel">base</span> <span class="operador">**</span> <span class="variavel">exp</span>
+}
+<span class="funcao">potencia</span>(<span class="numero">3</span>)       <span class="comentario">// 9</span>
+<span class="funcao">potencia</span>(<span class="numero">2</span>, <span class="numero">10</span>)   <span class="comentario">// 1024</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Funções de ordem superior e closures</span>
+  </div>
+  <p><strong>Funções de ordem superior</strong> recebem ou retornam outras funções. Uma <strong>closure</strong> é uma função que "lembra" o escopo em que foi criada, mesmo depois que a função externa terminou.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Função que recebe função como argumento</span>
+<span class="palavra-chave">function</span> <span class="funcao">aplicarDuasVezes</span>(<span class="variavel">fn</span>: (<span class="variavel">n</span>: <span class="tipo">number</span>) <span class="operador">=&gt;</span> <span class="tipo">number</span>, <span class="variavel">valor</span>: <span class="tipo">number</span>): <span class="tipo">number</span> {
+  <span class="palavra-chave">return</span> <span class="funcao">fn</span>(<span class="funcao">fn</span>(<span class="variavel">valor</span>))
+}
+<span class="funcao">aplicarDuasVezes</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">*</span> <span class="numero">3</span>, <span class="numero">2</span>)   <span class="comentario">// 18  (2*3 = 6, 6*3 = 18)</span>
+
+<span class="comentario">// Closure: função que lembra variável do escopo externo</span>
+<span class="palavra-chave">function</span> <span class="funcao">criarContador</span>(<span class="variavel">valorInicial</span>: <span class="tipo">number</span> <span class="operador">=</span> <span class="numero">0</span>) {
+  <span class="palavra-chave">let</span> <span class="variavel">contagem</span> <span class="operador">=</span> <span class="variavel">valorInicial</span>  <span class="comentario">// "lembrada" pela closure</span>
+
+  <span class="palavra-chave">return</span> {
+    <span class="funcao">incrementar</span>: () <span class="operador">=&gt;</span> <span class="operador">++</span><span class="variavel">contagem</span>,
+    <span class="funcao">decrementar</span>: () <span class="operador">=&gt;</span> <span class="operador">--</span><span class="variavel">contagem</span>,
+    <span class="funcao">obterValor</span>:  () <span class="operador">=&gt;</span> <span class="variavel">contagem</span>,
+  }
+}
+
+<span class="palavra-chave">const</span> <span class="variavel">contadorPlacar</span> <span class="operador">=</span> <span class="funcao">criarContador</span>(<span class="numero">0</span>)
+<span class="variavel">contadorPlacar</span>.<span class="funcao">incrementar</span>()  <span class="comentario">// 1</span>
+<span class="variavel">contadorPlacar</span>.<span class="funcao">incrementar</span>()  <span class="comentario">// 2</span>
+<span class="variavel">contadorPlacar</span>.<span class="funcao">decrementar</span>()  <span class="comentario">// 1</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">contadorPlacar</span>.<span class="funcao">obterValor</span>())  <span class="comentario">// 1</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Currying, memoização e recursão</span>
+  </div>
+  <p><strong>Currying</strong> transforma uma função de múltiplos argumentos em uma cadeia de funções de um argumento. <strong>Memoização</strong> armazena resultados já calculados para evitar reprocessamento.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Currying: f(a, b) vira f(a)(b)</span>
+<span class="palavra-chave">const</span> <span class="variavel">multiplicar</span> <span class="operador">=</span> (<span class="variavel">fator</span>: <span class="tipo">number</span>) <span class="operador">=&gt;</span> (<span class="variavel">valor</span>: <span class="tipo">number</span>): <span class="tipo">number</span> <span class="operador">=&gt;</span> <span class="variavel">fator</span> <span class="operador">*</span> <span class="variavel">valor</span>
+
+<span class="palavra-chave">const</span> <span class="variavel">triplicar</span>  <span class="operador">=</span> <span class="funcao">multiplicar</span>(<span class="numero">3</span>)
+<span class="palavra-chave">const</span> <span class="variavel">quintuplicar</span> <span class="operador">=</span> <span class="funcao">multiplicar</span>(<span class="numero">5</span>)
+
+<span class="funcao">triplicar</span>(<span class="numero">4</span>)     <span class="comentario">// 12</span>
+<span class="funcao">quintuplicar</span>(<span class="numero">4</span>) <span class="comentario">// 20</span>
+
+<span class="comentario">// Memoização: armazena resultados para não recalcular</span>
+<span class="palavra-chave">function</span> <span class="funcao">memoizar</span>&lt;<span class="tipo">T</span>, <span class="tipo">R</span>&gt;(<span class="variavel">fn</span>: (<span class="variavel">arg</span>: <span class="tipo">T</span>) <span class="operador">=&gt;</span> <span class="tipo">R</span>): (<span class="variavel">arg</span>: <span class="tipo">T</span>) <span class="operador">=&gt;</span> <span class="tipo">R</span> {
+  <span class="palavra-chave">const</span> <span class="variavel">cache</span> <span class="operador">=</span> <span class="palavra-chave">new</span> <span class="funcao">Map</span>&lt;<span class="tipo">T</span>, <span class="tipo">R</span>&gt;()
+  <span class="palavra-chave">return</span> (<span class="variavel">arg</span>: <span class="tipo">T</span>): <span class="tipo">R</span> <span class="operador">=&gt;</span> {
+    <span class="palavra-chave">if</span> (<span class="variavel">cache</span>.<span class="funcao">has</span>(<span class="variavel">arg</span>)) <span class="palavra-chave">return</span> <span class="variavel">cache</span>.<span class="funcao">get</span>(<span class="variavel">arg</span>)<span class="operador">!</span>
+    <span class="palavra-chave">const</span> <span class="variavel">resultado</span> <span class="operador">=</span> <span class="funcao">fn</span>(<span class="variavel">arg</span>)
+    <span class="variavel">cache</span>.<span class="funcao">set</span>(<span class="variavel">arg</span>, <span class="variavel">resultado</span>)
+    <span class="palavra-chave">return</span> <span class="variavel">resultado</span>
+  }
+}
+
+<span class="comentario">// Fibonacci sem memoização: O(2^n) — muito lento</span>
+<span class="comentario">// Com memoização: O(n) — linear!</span>
+<span class="palavra-chave">const</span> <span class="variavel">fibMemo</span> <span class="operador">=</span> <span class="funcao">memoizar</span>((<span class="variavel">n</span>: <span class="tipo">number</span>): <span class="tipo">number</span> <span class="operador">=&gt;</span>
+  <span class="variavel">n</span> <span class="operador">&lt;=</span> <span class="numero">1</span> <span class="operador">?</span> <span class="variavel">n</span> <span class="operador">:</span> <span class="funcao">fibMemo</span>(<span class="variavel">n</span> <span class="operador">-</span> <span class="numero">1</span>) <span class="operador">+</span> <span class="funcao">fibMemo</span>(<span class="variavel">n</span> <span class="operador">-</span> <span class="numero">2</span>)
+)
+<span class="funcao">fibMemo</span>(<span class="numero">40</span>)  <span class="comentario">// instantâneo!</span>
+    </pre>
+  </div>
+</div>

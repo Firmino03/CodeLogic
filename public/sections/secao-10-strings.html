@@ -1,0 +1,101 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">Métodos essenciais de string</span>
+  </div>
+  <p>Strings são textos. TypeScript herda todos os métodos de string do JavaScript, permitindo buscar, transformar e formatar textos com facilidade.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">frase</span> <span class="operador">=</span> <span class="texto-string">"  Olá, Mundo TypeScript!  "</span>
+
+<span class="variavel">frase</span>.<span class="variavel">length</span>                       <span class="comentario">// 26</span>
+<span class="variavel">frase</span>.<span class="funcao">trim</span>()                        <span class="comentario">// "Olá, Mundo TypeScript!"</span>
+<span class="variavel">frase</span>.<span class="funcao">toUpperCase</span>()                <span class="comentario">// "  OLÁ, MUNDO TYPESCRIPT!  "</span>
+<span class="variavel">frase</span>.<span class="funcao">toLowerCase</span>()                <span class="comentario">// "  olá, mundo typescript!  "</span>
+<span class="variavel">frase</span>.<span class="funcao">includes</span>(<span class="texto-string">"Mundo"</span>)            <span class="comentario">// true</span>
+<span class="variavel">frase</span>.<span class="funcao">replace</span>(<span class="texto-string">"Mundo"</span>, <span class="texto-string">"Brasil"</span>)   <span class="comentario">// "  Olá, Brasil TypeScript!  "</span>
+
+<span class="comentario">// Template string: inserir variável no texto</span>
+<span class="palavra-chave">const</span> <span class="variavel">nomeJogador</span> <span class="operador">=</span> <span class="texto-string">"Carlos"</span>
+<span class="palavra-chave">const</span> <span class="variavel">pontos</span>       <span class="operador">=</span> <span class="numero">100</span>
+<span class="palavra-chave">const</span> <span class="variavel">mensagem</span>     <span class="operador">=</span> <span class="texto-string">`<span class="operador">${</span><span class="variavel">nomeJogador</span><span class="operador">}</span> fez <span class="operador">${</span><span class="variavel">pontos</span><span class="operador">}</span> pontos!`</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">split, slice, padStart e mais</span>
+  </div>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Dividir em array e juntar de volta</span>
+<span class="palavra-chave">const</span> <span class="variavel">csvTexto</span> <span class="operador">=</span> <span class="texto-string">"Ana,Bruno,Carla,Diego"</span>
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNomes</span> <span class="operador">=</span> <span class="variavel">csvTexto</span>.<span class="funcao">split</span>(<span class="texto-string">","</span>)
+<span class="comentario">// ["Ana", "Bruno", "Carla", "Diego"]</span>
+
+<span class="palavra-chave">const</span> <span class="variavel">textoReunido</span> <span class="operador">=</span> <span class="variavel">listaDeNomes</span>.<span class="funcao">join</span>(<span class="texto-string">" | "</span>)
+<span class="comentario">// "Ana | Bruno | Carla | Diego"</span>
+
+<span class="comentario">// Extrair parte da string</span>
+<span class="palavra-chave">const</span> <span class="variavel">email</span> <span class="operador">=</span> <span class="texto-string">"usuario@dominio.com"</span>
+<span class="palavra-chave">const</span> <span class="variavel">usuario</span> <span class="operador">=</span> <span class="variavel">email</span>.<span class="funcao">slice</span>(<span class="numero">0</span>, <span class="variavel">email</span>.<span class="funcao">indexOf</span>(<span class="texto-string">"@"</span>))  <span class="comentario">// "usuario"</span>
+<span class="palavra-chave">const</span> <span class="variavel">dominio</span>  <span class="operador">=</span> <span class="variavel">email</span>.<span class="funcao">slice</span>(<span class="variavel">email</span>.<span class="funcao">indexOf</span>(<span class="texto-string">"@"</span>) <span class="operador">+</span> <span class="numero">1</span>)    <span class="comentario">// "dominio.com"</span>
+
+<span class="comentario">// Preencher para formatação</span>
+<span class="texto-string">"7"</span>.<span class="funcao">padStart</span>(<span class="numero">3</span>, <span class="texto-string">"0"</span>)   <span class="comentario">// "007" — útil para IDs e datas</span>
+<span class="texto-string">"5"</span>.<span class="funcao">padEnd</span>(<span class="numero">5</span>, <span class="texto-string">"."</span>)     <span class="comentario">// "5...."</span>
+
+<span class="comentario">// Verificar início e fim</span>
+<span class="variavel">email</span>.<span class="funcao">startsWith</span>(<span class="texto-string">"usuario"</span>)    <span class="comentario">// true</span>
+<span class="variavel">email</span>.<span class="funcao">endsWith</span>(<span class="texto-string">".com"</span>)         <span class="comentario">// true</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Expressões regulares (RegEx)</span>
+  </div>
+  <p><strong>Expressões regulares</strong> são padrões para buscar e transformar texto. São muito poderosas para validação de dados (email, CPF, telefone) e extração de informações.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Validar formato de email</span>
+<span class="palavra-chave">function</span> <span class="funcao">emailEValido</span>(<span class="variavel">email</span>: <span class="tipo">string</span>): <span class="tipo">boolean</span> {
+  <span class="palavra-chave">const</span> <span class="variavel">padraoEmail</span> <span class="operador">=</span> <span class="operador">/</span>^[^\s@]+@[^\s@]+\.[^\s@]+$<span class="operador">/</span>
+  <span class="palavra-chave">return</span> <span class="variavel">padraoEmail</span>.<span class="funcao">test</span>(<span class="variavel">email</span>)
+}
+<span class="funcao">emailEValido</span>(<span class="texto-string">"ana@email.com"</span>)   <span class="comentario">// true</span>
+<span class="funcao">emailEValido</span>(<span class="texto-string">"invalido"</span>)       <span class="comentario">// false</span>
+
+<span class="comentario">// Extrair todos os números de um texto</span>
+<span class="palavra-chave">const</span> <span class="variavel">textoComNúmeros</span> <span class="operador">=</span> <span class="texto-string">"Pedido #1234 com 3 itens, total R$ 99.90"</span>
+<span class="palavra-chave">const</span> <span class="variavel">numerosEncontrados</span> <span class="operador">=</span> <span class="variavel">textoComNúmeros</span>.<span class="funcao">match</span>(<span class="operador">/</span>\d+(\.\d+)?<span class="operador">/g</span>)
+<span class="comentario">// ["1234", "3", "99.90"]</span>
+
+<span class="comentario">// Substituir padrão com função</span>
+<span class="palavra-chave">const</span> <span class="variavel">textoFormatado</span> <span class="operador">=</span> <span class="texto-string">"nome_do_campo"</span>.<span class="funcao">replace</span>(<span class="operador">/</span>_([a-z])<span class="operador">/g</span>, (<span class="variavel">_</span>, <span class="variavel">letra</span>) <span class="operador">=&gt;</span> <span class="variavel">letra</span>.<span class="funcao">toUpperCase</span>())
+<span class="comentario">// "nomeDoCampo" (snake_case → camelCase)</span>
+
+<span class="comentario">// Grupos nomeados para extração precisa</span>
+<span class="palavra-chave">const</span> <span class="variavel">padraoData</span> <span class="operador">=</span> <span class="operador">/</span>(?&lt;dia&gt;\d{2})\/(?&lt;mes&gt;\d{2})\/(?&lt;ano&gt;\d{4})<span class="operador">/</span>
+<span class="palavra-chave">const</span> <span class="variavel">resultadoData</span> <span class="operador">=</span> <span class="texto-string">"25/12/2024"</span>.<span class="funcao">match</span>(<span class="variavel">padraoData</span>)
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">resultadoData</span><span class="operador">?.</span><span class="variavel">groups</span>)
+<span class="comentario">// { dia: "25", mes: "12", ano: "2024" }</span>
+    </pre>
+  </div>
+</div>
