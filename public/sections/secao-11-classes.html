@@ -1,0 +1,142 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é uma classe?</span>
+  </div>
+  <p>Uma <strong>classe</strong> é um molde para criar objetos. Define os dados que cada objeto terá (atributos) e as ações que ele pode fazer (métodos). É o fundamento da Programação Orientada a Objetos (POO).</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">class</span> <span class="tipo">Pessoa</span> {
+  <span class="comentario">// Atributos</span>
+  <span class="variavel">nome</span>: <span class="tipo">string</span>
+  <span class="variavel">idade</span>: <span class="tipo">number</span>
+
+  <span class="comentario">// Construtor: executado ao criar o objeto</span>
+  <span class="palavra-chave">constructor</span>(<span class="variavel">nome</span>: <span class="tipo">string</span>, <span class="variavel">idade</span>: <span class="tipo">number</span>) {
+    <span class="palavra-chave">this</span>.<span class="variavel">nome</span>  <span class="operador">=</span> <span class="variavel">nome</span>
+    <span class="palavra-chave">this</span>.<span class="variavel">idade</span> <span class="operador">=</span> <span class="variavel">idade</span>
+  }
+
+  <span class="comentario">// Método</span>
+  <span class="funcao">seApresentar</span>(): <span class="tipo">void</span> {
+    <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Sou <span class="operador">${</span><span class="palavra-chave">this</span>.<span class="variavel">nome</span><span class="operador">}</span>, <span class="operador">${</span><span class="palavra-chave">this</span>.<span class="variavel">idade</span><span class="operador">}</span> anos.`</span>)
+  }
+}
+
+<span class="comentario">// Criar objetos (instâncias)</span>
+<span class="palavra-chave">const</span> <span class="variavel">pessoaUm</span> <span class="operador">=</span> <span class="palavra-chave">new</span> <span class="funcao">Pessoa</span>(<span class="texto-string">"Alice"</span>, <span class="numero">25</span>)
+<span class="palavra-chave">const</span> <span class="variavel">pessoaDois</span> <span class="operador">=</span> <span class="palavra-chave">new</span> <span class="funcao">Pessoa</span>(<span class="texto-string">"Bruno"</span>, <span class="numero">30</span>)
+
+<span class="comentario">// Acessar propriedades</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">pessoaUm</span>.<span class="variavel">nome</span>)   <span class="comentario">// "Alice"</span>
+<span class="variavel">pessoaDois</span>.<span class="funcao">seApresentar</span>()    <span class="comentario">// "Sou Bruno, 30 anos."</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Herança, private e protected</span>
+  </div>
+  <p>A <strong>herança</strong> permite criar uma nova classe baseada em outra. Os modificadores <code>private</code>, <code>protected</code> e <code>public</code> controlam quem pode acessar os atributos e métodos.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">class</span> <span class="tipo">ContaBancaria</span> {
+  <span class="palavra-chave">protected</span> <span class="variavel">titular</span>: <span class="tipo">string</span>
+  <span class="palavra-chave">private</span>   <span class="variavel">saldo</span>: <span class="tipo">number</span>       <span class="comentario">// só acessível aqui dentro</span>
+
+  <span class="palavra-chave">constructor</span>(<span class="variavel">titular</span>: <span class="tipo">string</span>, <span class="variavel">deposito</span>: <span class="tipo">number</span>) {
+    <span class="palavra-chave">this</span>.<span class="variavel">titular</span> <span class="operador">=</span> <span class="variavel">titular</span>
+    <span class="palavra-chave">this</span>.<span class="variavel">saldo</span>   <span class="operador">=</span> <span class="variavel">deposito</span>
+  }
+
+  <span class="funcao">depositar</span>(<span class="variavel">valor</span>: <span class="tipo">number</span>): <span class="tipo">void</span> {
+    <span class="palavra-chave">if</span> (<span class="variavel">valor</span> <span class="operador">&gt;</span> <span class="numero">0</span>) <span class="palavra-chave">this</span>.<span class="variavel">saldo</span> <span class="operador">+=</span> <span class="variavel">valor</span>
+  }
+
+  <span class="funcao">sacar</span>(<span class="variavel">valor</span>: <span class="tipo">number</span>): <span class="tipo">boolean</span> {
+    <span class="palavra-chave">if</span> (<span class="variavel">valor</span> <span class="operador">&gt;</span> <span class="palavra-chave">this</span>.<span class="variavel">saldo</span>) <span class="palavra-chave">return</span> <span class="palavra-chave">false</span>
+    <span class="palavra-chave">this</span>.<span class="variavel">saldo</span> <span class="operador">-=</span> <span class="variavel">valor</span>
+    <span class="palavra-chave">return</span> <span class="palavra-chave">true</span>
+  }
+
+  <span class="funcao">obterSaldo</span>(): <span class="tipo">number</span> { <span class="palavra-chave">return</span> <span class="palavra-chave">this</span>.<span class="variavel">saldo</span> }
+}
+
+<span class="comentario">// Herança: ContaCorrente estende ContaBancaria</span>
+<span class="palavra-chave">class</span> <span class="tipo">ContaCorrente</span> <span class="palavra-chave">extends</span> <span class="tipo">ContaBancaria</span> {
+  <span class="palavra-chave">private</span> <span class="variavel">limiteCredito</span>: <span class="tipo">number</span>
+
+  <span class="palavra-chave">constructor</span>(<span class="variavel">titular</span>: <span class="tipo">string</span>, <span class="variavel">deposito</span>: <span class="tipo">number</span>, <span class="variavel">limite</span>: <span class="tipo">number</span>) {
+    <span class="palavra-chave">super</span>(<span class="variavel">titular</span>, <span class="variavel">deposito</span>)   <span class="comentario">// chama o construtor pai</span>
+    <span class="palavra-chave">this</span>.<span class="variavel">limiteCredito</span> <span class="operador">=</span> <span class="variavel">limite</span>
+  }
+
+  <span class="funcao">sacarComLimite</span>(<span class="variavel">valor</span>: <span class="tipo">number</span>): <span class="tipo">boolean</span> {
+    <span class="palavra-chave">const</span> <span class="variavel">totalDisponivel</span> <span class="operador">=</span> <span class="palavra-chave">this</span>.<span class="funcao">obterSaldo</span>() <span class="operador">+</span> <span class="palavra-chave">this</span>.<span class="variavel">limiteCredito</span>
+    <span class="palavra-chave">if</span> (<span class="variavel">valor</span> <span class="operador">&gt;</span> <span class="variavel">totalDisponivel</span>) <span class="palavra-chave">return</span> <span class="palavra-chave">false</span>
+    <span class="palavra-chave">return</span> <span class="palavra-chave">super</span>.<span class="funcao">sacar</span>(<span class="variavel">valor</span>)
+  }
+}
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Classes abstratas e interfaces</span>
+  </div>
+  <p>Uma <strong>classe abstrata</strong> define uma estrutura que subclasses devem implementar. Uma <strong>interface</strong> define um contrato de forma que qualquer objeto que a implemente garante ter certos métodos e propriedades.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Interface: define um contrato</span>
+<span class="palavra-chave">interface</span> <span class="tipo">FormaGeometrica</span> {
+  <span class="funcao">calcularArea</span>(): <span class="tipo">number</span>
+  <span class="funcao">calcularPerimetro</span>(): <span class="tipo">number</span>
+  <span class="variavel">descricao</span>: <span class="tipo">string</span>
+}
+
+<span class="comentario">// Classe abstrata: base com método abstrato</span>
+<span class="palavra-chave">abstract</span> <span class="palavra-chave">class</span> <span class="tipo">Forma</span> <span class="palavra-chave">implements</span> <span class="tipo">FormaGeometrica</span> {
+  <span class="palavra-chave">abstract</span> <span class="funcao">calcularArea</span>(): <span class="tipo">number</span>
+  <span class="palavra-chave">abstract</span> <span class="funcao">calcularPerimetro</span>(): <span class="tipo">number</span>
+
+  <span class="palavra-chave">get</span> <span class="funcao">descricao</span>(): <span class="tipo">string</span> {
+    <span class="palavra-chave">return</span> <span class="texto-string">`Área: <span class="operador">${</span><span class="palavra-chave">this</span>.<span class="funcao">calcularArea</span>().<span class="funcao">toFixed</span>(<span class="numero">2</span>)<span class="operador">}</span>`</span>
+  }
+}
+
+<span class="comentario">// Implementações concretas</span>
+<span class="palavra-chave">class</span> <span class="tipo">Circulo</span> <span class="palavra-chave">extends</span> <span class="tipo">Forma</span> {
+  <span class="palavra-chave">constructor</span>(<span class="palavra-chave">private</span> <span class="variavel">raio</span>: <span class="tipo">number</span>) { <span class="palavra-chave">super</span>() }
+  <span class="funcao">calcularArea</span>() { <span class="palavra-chave">return</span> Math.<span class="variavel">PI</span> <span class="operador">*</span> <span class="palavra-chave">this</span>.<span class="variavel">raio</span> <span class="operador">**</span> <span class="numero">2</span> }
+  <span class="funcao">calcularPerimetro</span>() { <span class="palavra-chave">return</span> <span class="numero">2</span> <span class="operador">*</span> Math.<span class="variavel">PI</span> <span class="operador">*</span> <span class="palavra-chave">this</span>.<span class="variavel">raio</span> }
+}
+
+<span class="palavra-chave">class</span> <span class="tipo">Retangulo</span> <span class="palavra-chave">extends</span> <span class="tipo">Forma</span> {
+  <span class="palavra-chave">constructor</span>(<span class="palavra-chave">private</span> <span class="variavel">largura</span>: <span class="tipo">number</span>, <span class="palavra-chave">private</span> <span class="variavel">altura</span>: <span class="tipo">number</span>) { <span class="palavra-chave">super</span>() }
+  <span class="funcao">calcularArea</span>() { <span class="palavra-chave">return</span> <span class="palavra-chave">this</span>.<span class="variavel">largura</span> <span class="operador">*</span> <span class="palavra-chave">this</span>.<span class="variavel">altura</span> }
+  <span class="funcao">calcularPerimetro</span>() { <span class="palavra-chave">return</span> <span class="numero">2</span> <span class="operador">*</span> (<span class="palavra-chave">this</span>.<span class="variavel">largura</span> <span class="operador">+</span> <span class="palavra-chave">this</span>.<span class="variavel">altura</span>) }
+}
+
+<span class="comentario">// Polimorfismo: trata os dois como FormaGeometrica</span>
+<span class="palavra-chave">const</span> <span class="variavel">listaFormas</span>: <span class="tipo">FormaGeometrica</span>[] <span class="operador">=</span> [<span class="palavra-chave">new</span> <span class="funcao">Circulo</span>(<span class="numero">5</span>), <span class="palavra-chave">new</span> <span class="funcao">Retangulo</span>(<span class="numero">4</span>, <span class="numero">6</span>)]
+<span class="variavel">listaFormas</span>.<span class="funcao">forEach</span>(<span class="variavel">forma</span> <span class="operador">=&gt;</span> <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">forma</span>.<span class="funcao">calcularArea</span>()))
+<span class="comentario">// 78.54, 24</span>
+    </pre>
+  </div>
+</div>

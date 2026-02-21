@@ -1,0 +1,118 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é o paradigma imperativo?</span>
+  </div>
+  <p>O paradigma imperativo é o estilo de programação onde você descreve <strong>como</strong> o programa deve executar cada passo para chegar ao resultado. É composto de três estruturas: sequência, seleção e iteração.</p>
+  <div class="grade-cards">
+    <div class="card"><h3><span class="icone">📋</span> Sequencial</h3><p>Instruções executadas uma após a outra, na ordem que aparecem no código. O caminho mais simples.</p></div>
+    <div class="card"><h3><span class="icone">🔀</span> Seleção</h3><p>Fluxo muda com base em condições. Usa <code>if</code>, <code>else</code> e <code>switch</code>.</p></div>
+    <div class="card"><h3><span class="icone">🔁</span> Iteração</h3><p>Blocos que se repetem enquanto uma condição for verdadeira.</p></div>
+  </div>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// SEQUENCIAL: executa em ordem, passo a passo</span>
+<span class="palavra-chave">const</span> <span class="variavel">preco</span>      <span class="operador">=</span> <span class="numero">100</span>
+<span class="palavra-chave">const</span> <span class="variavel">desconto</span>   <span class="operador">=</span> <span class="numero">0.15</span>
+<span class="palavra-chave">const</span> <span class="variavel">precoFinal</span> <span class="operador">=</span> <span class="variavel">preco</span> <span class="operador">-</span> (<span class="variavel">preco</span> <span class="operador">*</span> <span class="variavel">desconto</span>)
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Preço final: R$ <span class="operador">${</span><span class="variavel">precoFinal</span><span class="operador">}</span>`</span>)   <span class="comentario">// R$ 85</span>
+
+<span class="comentario">// SELEÇÃO: decide qual caminho seguir</span>
+<span class="palavra-chave">if</span> (<span class="variavel">precoFinal</span> <span class="operador">&lt;</span> <span class="numero">50</span>) {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Ótima oferta!"</span>)
+} <span class="palavra-chave">else</span> {
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">"Preço normal"</span>)   <span class="comentario">// ← este executa</span>
+}
+
+<span class="comentario">// ITERAÇÃO: repete para cada item do carrinho</span>
+<span class="palavra-chave">const</span> <span class="variavel">carrinho</span> <span class="operador">=</span> [<span class="numero">29.90</span>, <span class="numero">49.90</span>, <span class="numero">19.90</span>]
+<span class="palavra-chave">let</span> <span class="variavel">totalCarrinho</span> <span class="operador">=</span> <span class="numero">0</span>
+
+<span class="palavra-chave">for</span> (<span class="palavra-chave">const</span> <span class="variavel">itemPreco</span> <span class="palavra-chave">of</span> <span class="variavel">carrinho</span>) {
+  <span class="variavel">totalCarrinho</span> <span class="operador">+=</span> <span class="variavel">itemPreco</span>
+}
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`Total: R$ <span class="operador">${</span><span class="variavel">totalCarrinho</span>.<span class="funcao">toFixed</span>(<span class="numero">2</span>)<span class="operador">}</span>`</span>)   <span class="comentario">// R$ 99.70</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Imperativo vs Declarativo</span>
+  </div>
+  <p>O paradigma <strong>imperativo</strong> descreve <em>como</em> fazer. O paradigma <strong>declarativo</strong> descreve <em>o que</em> você quer. Ambos têm seus usos — compare abaixo a mesma tarefa nas duas formas.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">listaNumeros</span> <span class="operador">=</span> [<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>, <span class="numero">4</span>, <span class="numero">5</span>, <span class="numero">6</span>, <span class="numero">7</span>, <span class="numero">8</span>]
+
+<span class="comentario">// ── IMPERATIVO: diz como fazer cada passo ─────────</span>
+<span class="palavra-chave">const</span> <span class="variavel">paresAoQuadradoImperativo</span>: <span class="tipo">number</span>[] <span class="operador">=</span> []
+
+<span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">i</span> <span class="operador">=</span> <span class="numero">0</span>; <span class="variavel">i</span> <span class="operador">&lt;</span> <span class="variavel">listaNumeros</span>.<span class="variavel">length</span>; <span class="variavel">i</span><span class="operador">++</span>) {
+  <span class="palavra-chave">if</span> (<span class="variavel">listaNumeros</span>[<span class="variavel">i</span>] <span class="operador">%</span> <span class="numero">2</span> <span class="operador">===</span> <span class="numero">0</span>) {
+    <span class="variavel">paresAoQuadradoImperativo</span>.<span class="funcao">push</span>(<span class="variavel">listaNumeros</span>[<span class="variavel">i</span>] <span class="operador">**</span> <span class="numero">2</span>)
+  }
+}
+<span class="comentario">// [4, 16, 36, 64]</span>
+
+<span class="comentario">// ── DECLARATIVO: diz o que você quer ──────────────</span>
+<span class="palavra-chave">const</span> <span class="variavel">paresAoQuadradoDeclarativo</span> <span class="operador">=</span> <span class="variavel">listaNumeros</span>
+  .<span class="funcao">filter</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">%</span> <span class="numero">2</span> <span class="operador">===</span> <span class="numero">0</span>)
+  .<span class="funcao">map</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">**</span> <span class="numero">2</span>)
+<span class="comentario">// [4, 16, 36, 64] — mesmo resultado, mais legível!</span>
+    </pre>
+  </div>
+  <div class="caixa-info"><div class="icone">💡</div><p>Na prática, combinamos os dois estilos. O imperativo é mais explícito e fácil de debugar. O declarativo é mais conciso e expressa a <em>intenção</em> do código com clareza.</p></div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">State machines — automatos finitos</span>
+  </div>
+  <p>Uma <strong>máquina de estados finitos</strong> é um modelo imperativo poderoso. O sistema sempre está em um estado definido, e transições de estado são acionadas por eventos. É muito usado em validação de formulários, fluxos de pedidos, jogos e UIs complexas.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Estados possíveis de um pedido</span>
+<span class="palavra-chave">type</span> <span class="tipo">EstadoPedido</span> <span class="operador">=</span> <span class="texto-string">"rascunho"</span> <span class="operador">|</span> <span class="texto-string">"confirmado"</span> <span class="operador">|</span> <span class="texto-string">"enviado"</span> <span class="operador">|</span> <span class="texto-string">"entregue"</span> <span class="operador">|</span> <span class="texto-string">"cancelado"</span>
+<span class="palavra-chave">type</span> <span class="tipo">EventoPedido</span>  <span class="operador">=</span> <span class="texto-string">"confirmar"</span> <span class="operador">|</span> <span class="texto-string">"enviar"</span> <span class="operador">|</span> <span class="texto-string">"entregar"</span> <span class="operador">|</span> <span class="texto-string">"cancelar"</span>
+
+<span class="comentario">// Tabela de transições: estado atual + evento → próximo estado</span>
+<span class="palavra-chave">const</span> <span class="variavel">transicoesPermitidas</span>: <span class="tipo">Record</span>&lt;<span class="tipo">EstadoPedido</span>, <span class="tipo">Partial</span>&lt;<span class="tipo">Record</span>&lt;<span class="tipo">EventoPedido</span>, <span class="tipo">EstadoPedido</span>&gt;&gt;&gt; <span class="operador">=</span> {
+  <span class="texto-string">"rascunho"</span>:    { <span class="variavel">confirmar</span>: <span class="texto-string">"confirmado"</span>,  <span class="variavel">cancelar</span>: <span class="texto-string">"cancelado"</span> },
+  <span class="texto-string">"confirmado"</span>:  { <span class="variavel">enviar</span>: <span class="texto-string">"enviado"</span>,        <span class="variavel">cancelar</span>: <span class="texto-string">"cancelado"</span> },
+  <span class="texto-string">"enviado"</span>:     { <span class="variavel">entregar</span>: <span class="texto-string">"entregue"</span> },
+  <span class="texto-string">"entregue"</span>:    {},
+  <span class="texto-string">"cancelado"</span>:   {},
+}
+
+<span class="palavra-chave">function</span> <span class="funcao">processarEvento</span>(<span class="variavel">estadoAtual</span>: <span class="tipo">EstadoPedido</span>, <span class="variavel">evento</span>: <span class="tipo">EventoPedido</span>): <span class="tipo">EstadoPedido</span> {
+  <span class="palavra-chave">const</span> <span class="variavel">proxEstado</span> <span class="operador">=</span> <span class="variavel">transicoesPermitidas</span>[<span class="variavel">estadoAtual</span>][<span class="variavel">evento</span>]
+  <span class="palavra-chave">if</span> (<span class="operador">!</span><span class="variavel">proxEstado</span>) {
+    <span class="variavel">console</span>.<span class="funcao">warn</span>(<span class="texto-string">`Transição inválida: <span class="operador">${</span><span class="variavel">estadoAtual</span><span class="operador">}</span> + <span class="operador">${</span><span class="variavel">evento</span><span class="operador">}</span>`</span>)
+    <span class="palavra-chave">return</span> <span class="variavel">estadoAtual</span>
+  }
+  <span class="variavel">console</span>.<span class="funcao">log</span>(<span class="texto-string">`<span class="operador">${</span><span class="variavel">estadoAtual</span><span class="operador">}</span> → <span class="operador">${</span><span class="variavel">proxEstado</span><span class="operador">}</span>`</span>)
+  <span class="palavra-chave">return</span> <span class="variavel">proxEstado</span>
+}
+
+<span class="palavra-chave">let</span> <span class="variavel">estadoDoPedido</span>: <span class="tipo">EstadoPedido</span> <span class="operador">=</span> <span class="texto-string">"rascunho"</span>
+<span class="variavel">estadoDoPedido</span> <span class="operador">=</span> <span class="funcao">processarEvento</span>(<span class="variavel">estadoDoPedido</span>, <span class="texto-string">"confirmar"</span>)   <span class="comentario">// confirmado</span>
+<span class="variavel">estadoDoPedido</span> <span class="operador">=</span> <span class="funcao">processarEvento</span>(<span class="variavel">estadoDoPedido</span>, <span class="texto-string">"enviar"</span>)      <span class="comentario">// enviado</span>
+<span class="variavel">estadoDoPedido</span> <span class="operador">=</span> <span class="funcao">processarEvento</span>(<span class="variavel">estadoDoPedido</span>, <span class="texto-string">"cancelar"</span>)    <span class="comentario">// inválido!</span>
+    </pre>
+  </div>
+</div>
