@@ -1,0 +1,117 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é uma matriz?</span>
+  </div>
+  <p>Uma matriz é um <strong>array de arrays</strong> — uma tabela com linhas e colunas. Ideal para representar grades, tabuleiros de jogos ou tabelas de dados.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// Matriz 3x3 — 3 linhas, 3 colunas</span>
+<span class="palavra-chave">const</span> <span class="variavel">tabelaNumeros</span>: <span class="tipo">number</span>[][] <span class="operador">=</span> [
+  [<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>],   <span class="comentario">// linha 0</span>
+  [<span class="numero">4</span>, <span class="numero">5</span>, <span class="numero">6</span>],   <span class="comentario">// linha 1</span>
+  [<span class="numero">7</span>, <span class="numero">8</span>, <span class="numero">9</span>]    <span class="comentario">// linha 2</span>
+]
+
+<span class="comentario">// Acesso: [linha][coluna]</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">tabelaNumeros</span>[<span class="numero">0</span>][<span class="numero">0</span>])  <span class="comentario">// 1</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">tabelaNumeros</span>[<span class="numero">1</span>][<span class="numero">2</span>])  <span class="comentario">// 6</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">tabelaNumeros</span>[<span class="numero">2</span>][<span class="numero">1</span>])  <span class="comentario">// 8</span>
+
+<span class="comentario">// Percorrer todos os elementos</span>
+<span class="palavra-chave">for</span> (<span class="palavra-chave">const</span> <span class="variavel">linhaAtual</span> <span class="palavra-chave">of</span> <span class="variavel">tabelaNumeros</span>) {
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">const</span> <span class="variavel">valorCelula</span> <span class="palavra-chave">of</span> <span class="variavel">linhaAtual</span>) {
+    <span class="variavel">process</span>.<span class="funcao">stdout</span>.<span class="funcao">write</span>(<span class="variavel">valorCelula</span> <span class="operador">+</span> <span class="texto-string">" "</span>)
+  }
+  <span class="variavel">console</span>.<span class="funcao">log</span>()
+}
+<span class="comentario">// 1 2 3</span>
+<span class="comentario">// 4 5 6</span>
+<span class="comentario">// 7 8 9</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">Tabuleiro de jogo e operações</span>
+  </div>
+  <p>Matrizes são perfeitas para representar jogos como jogo da velha, xadrez ou qualquer grade. Podemos verificar linhas, colunas e diagonais iterando pelos índices.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">type</span> <span class="tipo">Celula</span> <span class="operador">=</span> <span class="texto-string">"X"</span> <span class="operador">|</span> <span class="texto-string">"O"</span> <span class="operador">|</span> <span class="palavra-chave">null</span>
+<span class="palavra-chave">const</span> <span class="variavel">tabuleiroJogo</span>: <span class="tipo">Celula</span>[][] <span class="operador">=</span> [
+  [<span class="texto-string">"X"</span>, <span class="texto-string">"O"</span>, <span class="texto-string">"X"</span>],
+  [<span class="texto-string">"O"</span>, <span class="texto-string">"X"</span>, <span class="palavra-chave">null</span>],
+  [<span class="palavra-chave">null</span>, <span class="texto-string">"O"</span>, <span class="texto-string">"X"</span>]
+]
+
+<span class="comentario">// Verificar diagonal principal (canto sup-esq → inf-dir)</span>
+<span class="palavra-chave">function</span> <span class="funcao">verificarDiagonal</span>(<span class="variavel">tabuleiro</span>: <span class="tipo">Celula</span>[][]): <span class="tipo">Celula</span> <span class="operador">|</span> <span class="palavra-chave">null</span> {
+  <span class="palavra-chave">const</span> <span class="variavel">tamanho</span> <span class="operador">=</span> <span class="variavel">tabuleiro</span>.<span class="variavel">length</span>
+  <span class="palavra-chave">const</span> <span class="variavel">primeiraCelula</span> <span class="operador">=</span> <span class="variavel">tabuleiro</span>[<span class="numero">0</span>][<span class="numero">0</span>]
+
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">i</span> <span class="operador">=</span> <span class="numero">1</span>; <span class="variavel">i</span> <span class="operador">&lt;</span> <span class="variavel">tamanho</span>; <span class="variavel">i</span><span class="operador">++</span>) {
+    <span class="palavra-chave">if</span> (<span class="variavel">tabuleiro</span>[<span class="variavel">i</span>][<span class="variavel">i</span>] <span class="operador">!==</span> <span class="variavel">primeiraCelula</span>) <span class="palavra-chave">return</span> <span class="palavra-chave">null</span>
+  }
+  <span class="palavra-chave">return</span> <span class="variavel">primeiraCelula</span>   <span class="comentario">// vencedor!</span>
+}
+
+<span class="comentario">// Somar todos os valores de uma matriz</span>
+<span class="palavra-chave">function</span> <span class="funcao">somarMatriz</span>(<span class="variavel">matriz</span>: <span class="tipo">number</span>[][]): <span class="tipo">number</span> {
+  <span class="palavra-chave">return</span> <span class="variavel">matriz</span>.<span class="funcao">flat</span>().<span class="funcao">reduce</span>((<span class="variavel">soma</span>, <span class="variavel">valor</span>) <span class="operador">=&gt;</span> <span class="variavel">soma</span> <span class="operador">+</span> <span class="variavel">valor</span>, <span class="numero">0</span>)
+}
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">Multiplicação de matrizes</span>
+  </div>
+  <p>A <strong>multiplicação de matrizes</strong> é fundamental em computação gráfica, machine learning e processamento de sinais. Para multiplicar A × B, o número de colunas de A deve ser igual ao número de linhas de B.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">function</span> <span class="funcao">multiplicarMatrizes</span>(
+  <span class="variavel">matrizA</span>: <span class="tipo">number</span>[][],
+  <span class="variavel">matrizB</span>: <span class="tipo">number</span>[][]
+): <span class="tipo">number</span>[][] {
+  <span class="palavra-chave">const</span> <span class="variavel">linhasA</span> <span class="operador">=</span> <span class="variavel">matrizA</span>.<span class="variavel">length</span>
+  <span class="palavra-chave">const</span> <span class="variavel">colunasA</span> <span class="operador">=</span> <span class="variavel">matrizA</span>[<span class="numero">0</span>].<span class="variavel">length</span>
+  <span class="palavra-chave">const</span> <span class="variavel">colunasB</span> <span class="operador">=</span> <span class="variavel">matrizB</span>[<span class="numero">0</span>].<span class="variavel">length</span>
+
+  <span class="comentario">// Criar resultado zerado</span>
+  <span class="palavra-chave">const</span> <span class="variavel">resultado</span>: <span class="tipo">number</span>[][] <span class="operador">=</span>
+    <span class="tipo">Array</span>.<span class="funcao">from</span>({ <span class="variavel">length</span>: <span class="variavel">linhasA</span> }, () <span class="operador">=&gt;</span> <span class="palavra-chave">new</span> <span class="funcao">Array</span>(<span class="variavel">colunasB</span>).<span class="funcao">fill</span>(<span class="numero">0</span>))
+
+  <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">linha</span> <span class="operador">=</span> <span class="numero">0</span>; <span class="variavel">linha</span> <span class="operador">&lt;</span> <span class="variavel">linhasA</span>; <span class="variavel">linha</span><span class="operador">++</span>) {
+    <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">coluna</span> <span class="operador">=</span> <span class="numero">0</span>; <span class="variavel">coluna</span> <span class="operador">&lt;</span> <span class="variavel">colunasB</span>; <span class="variavel">coluna</span><span class="operador">++</span>) {
+      <span class="palavra-chave">for</span> (<span class="palavra-chave">let</span> <span class="variavel">k</span> <span class="operador">=</span> <span class="numero">0</span>; <span class="variavel">k</span> <span class="operador">&lt;</span> <span class="variavel">colunasA</span>; <span class="variavel">k</span><span class="operador">++</span>) {
+        <span class="variavel">resultado</span>[<span class="variavel">linha</span>][<span class="variavel">coluna</span>] <span class="operador">+=</span> <span class="variavel">matrizA</span>[<span class="variavel">linha</span>][<span class="variavel">k</span>] <span class="operador">*</span> <span class="variavel">matrizB</span>[<span class="variavel">k</span>][<span class="variavel">coluna</span>]
+      }
+    }
+  }
+  <span class="palavra-chave">return</span> <span class="variavel">resultado</span>
+}
+
+<span class="palavra-chave">const</span> <span class="variavel">A</span> <span class="operador">=</span> [[<span class="numero">1</span>, <span class="numero">2</span>], [<span class="numero">3</span>, <span class="numero">4</span>]]
+<span class="palavra-chave">const</span> <span class="variavel">B</span> <span class="operador">=</span> [[<span class="numero">5</span>, <span class="numero">6</span>], [<span class="numero">7</span>, <span class="numero">8</span>]]
+<span class="funcao">multiplicarMatrizes</span>(<span class="variavel">A</span>, <span class="variavel">B</span>)
+<span class="comentario">// [[19, 22], [43, 50]]</span>
+    </pre>
+  </div>
+</div>

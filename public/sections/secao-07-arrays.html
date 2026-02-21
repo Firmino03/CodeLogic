@@ -1,0 +1,102 @@
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge simples">● Nível Simples</span>
+    <span class="nivel-titulo">O que é um array?</span>
+  </div>
+  <p>Um array é uma <strong>lista ordenada de valores</strong> do mesmo tipo. Cada elemento tem uma posição chamada <strong>índice</strong>, que começa em <code style="color:var(--codigo-numero)">0</code>.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-simples.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNotas</span>: <span class="tipo">number</span>[] <span class="operador">=</span> [<span class="numero">8.5</span>, <span class="numero">7.0</span>, <span class="numero">9.2</span>, <span class="numero">6.8</span>]
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNomes</span>: <span class="tipo">string</span>[] <span class="operador">=</span> [<span class="texto-string">"Ana"</span>, <span class="texto-string">"Bruno"</span>, <span class="texto-string">"Carla"</span>]
+
+<span class="comentario">// Acesso pelo índice (começa em 0)</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">listaDeNomes</span>[<span class="numero">0</span>])   <span class="comentario">// "Ana"</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">listaDeNomes</span>[<span class="numero">2</span>])   <span class="comentario">// "Carla"</span>
+<span class="variavel">console</span>.<span class="funcao">log</span>(<span class="variavel">listaDeNomes</span>.<span class="variavel">length</span>) <span class="comentario">// 3</span>
+
+<span class="comentario">// Adicionar e remover</span>
+<span class="palavra-chave">const</span> <span class="variavel">itens</span>: <span class="tipo">number</span>[] <span class="operador">=</span> [<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>]
+<span class="variavel">itens</span>.<span class="funcao">push</span>(<span class="numero">4</span>)     <span class="comentario">// [1, 2, 3, 4]</span>
+<span class="variavel">itens</span>.<span class="funcao">pop</span>()       <span class="comentario">// [1, 2, 3]</span>
+<span class="variavel">itens</span>.<span class="funcao">unshift</span>(<span class="numero">0</span>) <span class="comentario">// [0, 1, 2, 3]</span>
+<span class="variavel">itens</span>.<span class="funcao">shift</span>()     <span class="comentario">// [1, 2, 3]</span>
+    </pre>
+  </div>
+  <div class="caixa-info"><div class="icone">💡</div><p>O índice sempre começa em <strong>0</strong>. Um array de 5 elementos tem índices de 0 a 4. Acessar um índice inexistente retorna <code>undefined</code>.</p></div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge medio">● Nível Médio</span>
+    <span class="nivel-titulo">map, filter e reduce</span>
+  </div>
+  <p>Os <strong>métodos funcionais</strong> transformam arrays de forma declarativa — você diz <em>o que</em> quer, não <em>como</em> fazer. São mais legíveis e menos propensos a erros que laços tradicionais.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-medio.ts</span>
+    </div>
+    <pre>
+<span class="palavra-chave">const</span> <span class="variavel">listaDeNumeros</span> <span class="operador">=</span> [<span class="numero">1</span>, <span class="numero">2</span>, <span class="numero">3</span>, <span class="numero">4</span>, <span class="numero">5</span>, <span class="numero">6</span>]
+
+<span class="comentario">// map: transforma cada elemento</span>
+<span class="palavra-chave">const</span> <span class="variavel">numerosDobrados</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>.<span class="funcao">map</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">*</span> <span class="numero">2</span>)
+<span class="comentario">// [2, 4, 6, 8, 10, 12]</span>
+
+<span class="comentario">// filter: mantém só quem passa na condição</span>
+<span class="palavra-chave">const</span> <span class="variavel">apenasImpares</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>.<span class="funcao">filter</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">%</span> <span class="numero">2</span> <span class="operador">!==</span> <span class="numero">0</span>)
+<span class="comentario">// [1, 3, 5]</span>
+
+<span class="comentario">// reduce: acumula em um único valor</span>
+<span class="palavra-chave">const</span> <span class="variavel">somaTotal</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>.<span class="funcao">reduce</span>((<span class="variavel">acumulador</span>, <span class="variavel">numero</span>) <span class="operador">=&gt;</span> <span class="variavel">acumulador</span> <span class="operador">+</span> <span class="variavel">numero</span>, <span class="numero">0</span>)
+<span class="comentario">// 21</span>
+
+<span class="comentario">// Encadeamento: filter + map em sequência</span>
+<span class="palavra-chave">const</span> <span class="variavel">imparesAoQuadrado</span> <span class="operador">=</span> <span class="variavel">listaDeNumeros</span>
+  .<span class="funcao">filter</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">%</span> <span class="numero">2</span> <span class="operador">!==</span> <span class="numero">0</span>)   <span class="comentario">// [1, 3, 5]</span>
+  .<span class="funcao">map</span>(<span class="variavel">n</span> <span class="operador">=&gt;</span> <span class="variavel">n</span> <span class="operador">**</span> <span class="numero">2</span>)          <span class="comentario">// [1, 9, 25]</span>
+    </pre>
+  </div>
+</div>
+
+<div class="nivel-bloco">
+  <div class="nivel-cabecalho">
+    <span class="nivel-badge avancado">● Nível Avançado</span>
+    <span class="nivel-titulo">flat, flatMap, sort e métodos avançados</span>
+  </div>
+  <p>Arrays modernos em TypeScript têm métodos poderosos para aplainar estruturas aninhadas, ordenar com critérios customizados e transformar dados complexos.</p>
+  <div class="bloco-codigo">
+    <div class="bloco-codigo-cabecalho">
+      <div class="dots"><div class="dot dot-vermelho"></div><div class="dot dot-amarelo"></div><div class="dot dot-verde"></div></div>
+      <span class="bloco-codigo-titulo">nivel-avancado.ts</span>
+    </div>
+    <pre>
+<span class="comentario">// flat: achata arrays aninhados</span>
+<span class="palavra-chave">const</span> <span class="variavel">listaAninhada</span> <span class="operador">=</span> [[<span class="numero">1</span>, <span class="numero">2</span>], [<span class="numero">3</span>, <span class="numero">4</span>], [<span class="numero">5</span>]]
+<span class="variavel">listaAninhada</span>.<span class="funcao">flat</span>()   <span class="comentario">// [1, 2, 3, 4, 5]</span>
+
+<span class="comentario">// flatMap: map + flat em uma operação</span>
+<span class="palavra-chave">const</span> <span class="variavel">frases</span> <span class="operador">=</span> [<span class="texto-string">"ola mundo"</span>, <span class="texto-string">"learn typescript"</span>]
+<span class="variavel">frases</span>.<span class="funcao">flatMap</span>(<span class="variavel">frase</span> <span class="operador">=&gt;</span> <span class="variavel">frase</span>.<span class="funcao">split</span>(<span class="texto-string">" "</span>))
+<span class="comentario">// ["ola", "mundo", "learn", "typescript"]</span>
+
+<span class="comentario">// sort com comparador: ordena objetos por propriedade</span>
+<span class="palavra-chave">const</span> <span class="variavel">listaAlunos</span> <span class="operador">=</span> [
+  { <span class="variavel">nome</span>: <span class="texto-string">"Carla"</span>, <span class="variavel">nota</span>: <span class="numero">9.5</span> },
+  { <span class="variavel">nome</span>: <span class="texto-string">"Bruno"</span>, <span class="variavel">nota</span>: <span class="numero">7.2</span> },
+  { <span class="variavel">nome</span>: <span class="texto-string">"Ana"</span>,   <span class="variavel">nota</span>: <span class="numero">8.8</span> }
+]
+<span class="palavra-chave">const</span> <span class="variavel">alunosOrdenados</span> <span class="operador">=</span> [...<span class="variavel">listaAlunos</span>]
+  .<span class="funcao">sort</span>((<span class="variavel">alunoA</span>, <span class="variavel">alunoB</span>) <span class="operador">=&gt;</span> <span class="variavel">alunoB</span>.<span class="variavel">nota</span> <span class="operador">-</span> <span class="variavel">alunoA</span>.<span class="variavel">nota</span>)
+<span class="comentario">// Carla 9.5, Ana 8.8, Bruno 7.2</span>
+
+<span class="comentario">// findIndex, some, every</span>
+<span class="variavel">listaAlunos</span>.<span class="funcao">some</span>(<span class="variavel">a</span> <span class="operador">=&gt;</span> <span class="variavel">a</span>.<span class="variavel">nota</span> <span class="operador">&gt;</span> <span class="numero">9</span>)   <span class="comentario">// true — existe ao menos um &gt; 9</span>
+<span class="variavel">listaAlunos</span>.<span class="funcao">every</span>(<span class="variavel">a</span> <span class="operador">=&gt;</span> <span class="variavel">a</span>.<span class="variavel">nota</span> <span class="operador">&gt;</span> <span class="numero">6</span>)  <span class="comentario">// true — todos têm nota &gt; 6</span>
+    </pre>
+  </div>
+</div>
