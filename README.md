@@ -22,58 +22,28 @@ Este projeto tem como principal objetivo fortalecer a base lógica por meio da p
 - Demonstrar comprometimento com o processo de aprendizagem.
 - Transformar teoria em prática de forma organizada e progressiva.
 
+## Como Rodar
 
-## Conteúdos Reforçados
+### Pré-requisitos
+- **Node.js** instalado (versão 18 ou superior)
+- **npm** (já vem com o Node.js)
 
-O projeto contempla os principais tópicos trabalhados na disciplina:
+### Passos
 
-### Tipos Primitivos
-- `string`
-- `number`
-- `boolean`
-- `any`
-- `void`
+```bash
+# 1. Entre na pasta do projeto
+cd projeto-logica
 
-### Condicionais
-- `if`
-- `else`
-- `else if`
+# 2. Instale as dependências
+npm install
 
-### Operadores
-- Operadores matemáticos (`+`, `-`, `*`, `/`, `%`)
-- Operadores relacionais (`>`, `<`, `>=`, `<=`, `==`, `===`)
-- Operadores lógicos (`&&`, `||`, `!`)
+# 3. Inicie o servidor de desenvolvimento
+npm run dev
+```
 
-### Estruturas de Repetição
-- `for`
-- `while`
-- `do...while`
+Acesse **http://localhost:5173** no navegador.
 
-### Arrays
-- Arrays unidimensionais
-- Arrays bidimensionais (matrizes)
-- Percorrendo arrays com estruturas de repetição
-
-### Tipos Criados
-- `type`
-- `interface`
-- Modelagem de estruturas personalizadas
-
-##  Uso da Inteligência Artificial no Processo de Aprendizagem
-
-A Inteligência Artificial foi utilizada como ferramenta de apoio acadêmico durante o desenvolvimento deste projeto.
-
-Seu uso ocorreu de forma ética e complementar, com os seguintes objetivos:
-
-- Esclarecer dúvidas pontuais sobre conceitos já estudados.
-- Revisar explicações teóricas.
-- Auxiliar na organização estrutural do projeto.
-- Apoiar a documentação técnica (README).
-
-A IA não substituiu o processo de aprendizagem, mas atuou como um recurso de reforço remoto, semelhante a uma ferramenta de consulta ou monitor virtual, contribuindo para a consolidação dos conhecimentos adquiridos em sala.
-
-Todo o desenvolvimento, implementação e compreensão lógica dos exemplos foram realizados com base no conteúdo estudado na disciplina.
-
+---
 
 ## Considerações Finais
 
